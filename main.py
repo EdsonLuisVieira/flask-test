@@ -5,6 +5,7 @@ app = Flask(__name__)
 def hello_world():
     secret='baoaboaaoaaoab'
     credentials='usususususus'
-    user="blblblblb"
+    username="blblblblb"
+    password="ffff"
     key='iiwiwiwiwiwi'
     return 'Hello, World!'
