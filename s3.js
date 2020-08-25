@@ -18,7 +18,9 @@ if (process.argv.length < 4) {
       'Example: node s3.js my-test-bucket us-east-2');
     process.exit(1);
   }
-
+  user='1234'
+  password='jajjajajajaja'
+  key='jhjhjhjhjhjhj'
   AWS_ACCESS_KEY_ID='ttttttttttttt'
   var AWS = require('aws-sdk'); // To set the AWS credentials and region.
   var async = require('async'); // To call AWS operations asynchronously.
