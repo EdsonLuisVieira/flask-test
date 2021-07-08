@@ -1,25 +1,21 @@
 version: 0.2
 
+env:
+  variables:
+    S3_TEMPLATE: "taurus-s3-deploy-template"
+    S3_ARTIFACT: "taurus-s3-deploy-artefatos"
 
 phases:
   install:
     commands:
       - ls
-    finally:
-      - echo This always runs even if the update or install command fails 
-  pre_build:
-    commands:
-      - echo Entered the pre_build phase...
-      - docker login -u User -p $LOGIN_PASSWORD
-    finally:
-      - echo This always runs even if the login command fails 
   build:
     commands:
-      - echo Entered the build phase...
-      - echo Build started on `date`
-    finally:
-      - echo This always runs even if the install command fails
+      - python3 -m pip install --target . -r requirements.txt
+      - zip -r artifact.zip .
+  sam:
+    commands:
+      - aws cloudformation package --template-file ./cloudformation.yml --s3-bucket $S3_ARTIFACT --output-template-file ./cloudformation.yaml
   post_build:
     commands:
-      - echo Entered the post_build phase...
-      - echo Build completed on `date`
+      - aws s3 cp cloudformation.yaml s3://$S3_TEMPLATE/aplication-lint/templates/cloudformation.yaml
