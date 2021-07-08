@@ -5,7 +5,6 @@ env:
     S3_TEMPLATE: "taurus-s3-deploy-template"
     S3_ARTIFACT: "taurus-s3-deploy-artefatos"
 
-
 phases:
   install:
     commands:
