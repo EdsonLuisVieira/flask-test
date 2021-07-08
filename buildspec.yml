@@ -9,12 +9,10 @@ phases:
   install:
     commands:
       - ls
+      - python3 -m pip install --target . -r requirements.txt
   build:
     commands:
-      - python3 -m pip install --target . -r requirements.txt
       - zip -r artifact.zip .
-  sam:
-    commands:
       - aws cloudformation package --template-file ./cloudformation.yml --s3-bucket $S3_ARTIFACT --output-template-file ./cloudformation.yaml
   post_build:
     commands:
