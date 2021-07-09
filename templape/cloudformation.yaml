@@ -1,6 +1,10 @@
 AWSTemplateFormatVersion: 2010-09-09
 Transform: "AWS::Serverless-2016-10-31"
 
+Parameters:
+  functionname:
+    Type: String
+
 Resources:
   TransformExecutionRole:
     Type: AWS::IAM::Role
@@ -26,7 +30,7 @@ Resources:
     Properties:
       Handler: main.handler
       Runtime: python3.8
-      FunctionName: teste-deploy
+      FunctionName: !Ref functionname
       CodeUri: ./artifact.zip
       MemorySize: 128
       Timeout: 300
