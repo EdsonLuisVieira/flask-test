@@ -1,6 +1,6 @@
 [
     {
-      "ParameterKey": "ffunctionname",
+      "ParameterKey": "functionname",
       "ParameterValue": "lambda-by-parameter"
     }
   ]
