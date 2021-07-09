@@ -4,8 +4,7 @@ version: 0.2
 env:
   variables:
     S3_TEMPLATE: "taurus-s3-deploy-template"
-    S3_ARTIFACT: "taurus-s3-deploy-artefatos"
-
+    
 phases:
   install:
     commands:
@@ -15,6 +14,6 @@ phases:
     commands:
       - zip -r artifact.zip .
       - aws cloudformation package --template-file ./cloudformation.yaml --s3-bucket $S3_ARTIFACT --output-template-file ./cloudformation.yaml
-  post_build:
-    commands:
-      - aws s3 cp cloudformation.yaml s3://$S3_TEMPLATE/aplication-lint/templates/cloudformation.yaml
+artifacts:
+  files:
+    - cloudformation.yaml
