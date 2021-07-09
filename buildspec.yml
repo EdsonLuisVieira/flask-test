@@ -1,6 +1,5 @@
 version: 0.2
 
-
 env:
   variables:
     S3_ARTIFACT: "taurus-s3-deploy-artefatos"
