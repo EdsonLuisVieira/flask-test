@@ -1,6 +1,5 @@
-[
-    {
-      "ParameterKey": "functionname",
-      "ParameterValue": "lambda-by-parameter"
-    }
-]
+{ 
+  "Parameters": {
+     "functionname": "lambda-by-parameter"
+  }
+}
